@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nattan Maisonneuve-Fleury - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-item {
+            margin-bottom: 25px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .experience-item {
+            border-left: 2px solid var(--secondary-color);
+            padding-left: 25px;
+            padding-bottom: 40px;
+            position: relative;
+        }
+        
+        .experience-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Nattan MF</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Expérience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1>Nattan Maisonneuve-Fleury</h1>
+                    <p>Développeur Web Passionné &amp; Étudiant en Systèmes Numériques</p>
+                    <a href="#contact" class="btn btn-primary btn-lg">Me Contacter</a>
+                    <div class="mt-4">
+                        <a href="#about" class="text-white me-3"><i class="bi bi-arrow-down-circle-fill h3"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram h3"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-github h3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+            </div>
+            <div class="row about-content">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="mon-image.jpg" alt="Nattan Maisonneuve-Fleury" class="profile-img">
+                </div>
+                <div class="col-lg-8">
+                    <h3>Développeur Web &amp; Technicien Systèmes Numériques</h3>
+                    <p>Je suis un étudiant passionné d'informatique, spécialisé en programmation web. Autonome, rigoureux, à l'écoute et enthousiaste à l'idée d'appliquer mes compétences dans des projets concrets.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Âge:</strong> 18 ans</li>
+                                <li class="mb-2"><strong>Téléphone:</strong> 07 88 66 03 15</li>
+                                <li class="mb-2"><strong>Adresse:</strong> 65 Avenue d'Embrun, Chorges 05230</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Email:</strong> nattanmaisonneuve@gmail.com</li>
+                                <li class="mb-2"><strong>Permis:</strong> B avec véhicule personnel</li>
+                                <li class="mb-2"><strong>Formation:</strong> Bac Pro Systèmes Numériques</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-primary me-2" id="downloadCV">Télécharger mon CV</a>
+                        <a href="#contact" class="btn btn-outline-primary">Me Contacter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Compétences</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML5/CSS3</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Bootstrap</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Maintenance Informatique</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Réalisation Audiovisuelle</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Autonomie & Rigueur</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="bg-light p-4 rounded">
+                        <i class="bi bi-laptop display-4 text-primary mb-3"></i>
+                        <h5>Développement Web</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="bg-light p-4 rounded">
+                        <i class="bi bi-tools display-4 text-primary mb-3"></i>
+                        <h5>Maintenance</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="bg-light p-4 rounded">
+                        <i class="bi bi-camera-video display-4 text-primary mb-3"></i>
+                        <h5>Audiovisuel</h5>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 text-center mb-4">
+                    <div class="bg-light p-4 rounded">
+                        <i class="bi bi-lightbulb display-4 text-primary mb-3"></i>
+                        <h5>Créativité</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Projets</h2>
+            </div>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=300&q=80" class="project-img card-img-top" alt="Projet Développement Web">
+                        <div class="card-body">
+                            <h5 class="card-title">Refonte de Site Web</h5>
+                            <p class="card-text">Refonte complète d'un site web avec modernisation de l'interface et amélioration des performances.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project1">Voir les détails</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=300&q=80" class="project-img card-img-top" alt="Projet E-commerce">
+                        <div class="card-body">
+                            <h5 class="card-title">Plateforme E-commerce</h5>
+                            <p class="card-text">Développement d'une plateforme e-commerce responsive avec système de paiement sécurisé.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project2">Voir les détails</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=300&q=80" class="project-img card-img-top" alt="Projet Application Mobile">
+                        <div class="card-body">
+                            <h5 class="card-title">Application Mobile</h5>
+                            <p class="card-text">Conception et développement d'une application mobile multiplateforme avec React Native.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project3">Voir les détails</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mon Parcours</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Expériences Professionnelles</h3>
+                    
+                    <div class="experience-item">
+                        <h4>E.Leclerc</h4>
+                        <h5>Travail étudiant Week-End</h5>
+                        <p><em>Depuis Avril 2025 - Chorges</em></p>
+                        <p>Mise en rayon des produits frais, facing, boulangerie et caisse.</p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <h4>Ax'Hotel</h4>
+                        <h5>Job été - Service petit déjeuner & réception</h5>
+                        <p><em>Été 2024 - Gap</em></p>
+                        <p>Accueil des clients, service du petit déjeuner et gestion de la réception.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Stages & Formations</h3>
+                    
+                    <div class="experience-item">
+                        <h4>Bac Professionnel Systèmes Numériques</h4>
+                        <h5>Mention Très Bien</h5>
+                        <p><em>2025</em></p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <h4>WebSenso</h4>
+                        <h5>Stages seconde & première bac pro SN</h5>
+                        <p><em>9 semaines - 2023 & 2024 - Chorges</em></p>
+                        <p>Programmation Web, zoning, refonte de sites.</p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <h4>SecuritAlpes</h4>
+                        <h5>Stages première & terminale bac pro SN</h5>
+                        <p><em>7 semaines - 2023 & 2024 - Chorges</em></p>
+                        <p>Installation et maintenance informatique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-moi</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="contact-info">
+                        <i class="bi bi-geo-alt-fill contact-icon"></i>
+                        <h4>Adresse</h4>
+                        <p>65 Avenue d'Embrun, Chorges 05230</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <i class="bi bi-envelope-fill contact-icon"></i>
+                        <h4>Email</h4>
+                        <p>nattanmaisonneuve@gmail.com</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <i class="bi bi-phone-fill contact-icon"></i>
+                        <h4>Téléphone</h4>
+                        <p>07 88 66 03 15</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control form-control-lg" placeholder="Votre nom" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control form-control-lg" placeholder="Votre email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg" placeholder="Sujet" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control form-control-lg" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Envoyer le message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <div class="social-links">
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+                <a href="#"><i class="bi bi-github"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+            </div>
+            <p>&copy; 2023 Nattan Maisonneuve-Fleury. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <!-- Modal 1 -->
+    <div class="modal fade" id="project1" tabindex="-1" aria-labelledby="project1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project1Label">Refonte de Site Web</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&h=500&q=80" class="modal-img mb-4" alt="Projet Développement Web">
+                    <p>Ce projet consistait en une refonte complète d'un site web existant pour améliorer son design, son accessibilité et ses performances.</p>
+                    <h5>Technologies utilisées:</h5>
+                    <ul>
+                        <li>HTML5 et CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Bootstrap 5</li>
+                        <li>PHP pour le backend</li>
+                    </ul>
+                    <h5>Résultats:</h5>
+                    <p>Amélioration de 60% du temps de chargement et augmentation de 40% du trafic mobile grâce au design responsive.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary">Voir le projet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="project2" tabindex="-1" aria-labelledby="project2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project2Label">Plateforme E-commerce</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&h=500&q=80" class="modal-img mb-4" alt="Projet E-commerce">
+                    <p>Développement d'une plateforme e-commerce complète avec catalogue produits, panier d'achat et système de paiement sécurisé.</p>
+                    <h5>Fonctionnalités:</h5>
+                    <ul>
+                        <li>Catalogue produits avec filtres avancés</li>
+                        <li>Panier d'achat persistant</li>
+                        <li>Processus de paiement sécurisé (Stripe)</li>
+                        <li>Espace client avec historique de commandes</li>
+                    </ul>
+                    <h5>Technologies:</h5>
+                    <p>React.js, Node.js, Express, MongoDB, Stripe API</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary">Voir le projet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="project3" tabindex="-1" aria-labelledby="project3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project3Label">Application Mobile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&h=500&q=80" class="modal-img mb-4" alt="Projet Application Mobile">
+                    <p>Conception et développement d'une application mobile multiplateforme pour la gestion de tâches et la productivité.</p>
+                    <h5>Fonctionnalités principales:</h5>
+                    <ul>
+                        <li>Création et organisation de tâches</li>
+                        <li>Synchronisation cloud</li>
+                        <li>Notifications push</li>
+                        <li>Interface intuitive et accessible</li>
+                    </ul>
+                    <h5>Stack technique:</h5>
+                    <p>React Native, Redux, Firebase, Expo</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary">Voir le projet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation for skill bars
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            function animateSkillBars() {
+                skillBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                });
+            }
+            
+            // Intersection Observer to trigger animation when skills section is in view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+            
+            // CV Download functionality
+            document.getElementById('downloadCV').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Create a temporary link to trigger download
+                const link = document.createElement('a');
+                link.href = '3.pdf'; // Your CV file name
+                link.download = 'CV_Nattan_Maisonneuve_Fleury.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+            
+            // Navbar background change on scroll
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.backgroundColor = 'var(--primary-color)';
+                    navbar.style.padding = '10px 0';
+                } else {
+                    navbar.style.backgroundColor = 'transparent';
+                    navbar.style.padding = '15px 0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
