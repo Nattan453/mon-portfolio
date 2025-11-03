@@ -1,1 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique - Automatisation & Robotique</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #4a44c9;
+            --accent-color: #ff6b6b;
+            --dark-color: #2a2a4a;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --transition: all 0.3s ease;
+            --veille-color: rgba(255, 0, 0, 0.815);
+            --probleme-color: #ff4757;
+            --avantage-color: #2ed573;
+            --probleme-bg: rgba(255, 71, 87, 0.1);
+            --avantage-bg: rgba(46, 213, 115, 0.1);
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .veilleTechnologique {
+            padding: 0.5rem 0.8rem;
+            background-color: var(--veille-color);
+        }
+
+        .veilleTechnologique:hover {
+            background-color: rgba(255, 0, 0, 216) !important;
+        }
+
+        /* Contenu principal */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-header {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            max-width: 100%;
+            margin: 0;
+        }
+
+        /* Contrôles du tableau */
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .sort-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sort-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .sort-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Tableau */
+        .table-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:hover {
+            background-color: #f9f9ff;
+        }
+
+        .date {
+            white-space: nowrap;
+            width: 120px;
+        }
+
+        .entreprise {
+            width: 150px;
+        }
+
+        .probleme {
+            width: 200px;
+            color: var(--probleme-color);
+            font-weight: 500;
+            background-color: var(--probleme-bg);
+        }
+
+        .avantage {
+            width: 200px;
+            color: var(--avantage-color);
+            font-weight: 500;
+            background-color: var(--avantage-bg);
+        }
+
+        .description {
+            width: 350px;
+        }
+
+        .source a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .source a:hover {
+            color: var(--veille-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .table-container {
+                overflow-x: auto;
+            }
+            
+            table {
+                min-width: 1100px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .table-controls {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Nattan<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html/#apropos">À propos</a></li>
+            <li><a href="index.html/#competences">Compétences</a></li>
+            <li><a href="index.html/#projets">Compte rendu</a></li>
+            <li><a class="veilleTechnologique" href="veilleTechnologique.html">Veille technologique</a></li>
+            <li><a href="index.html/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Veille Technologique</h1>
+            <p>Suivi des dernières innovations et tendances en automatisation et robotique.</p>
+        </div>
+
+        <div class="table-controls">
+            <button id="sortButton" class="sort-btn">
+                <span id="sortText">Trier du plus récent au plus ancien</span>
+                <i id="sortIcon">↓</i>
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table id="veilleTable">
+                <thead>
+                    <tr>
+                        <th class="date">Date</th>
+                        <th>Technologie / Sujet</th>
+                        <th class="entreprise">Entreprise</th>
+                        <th>Problème</th>
+                        <th>Avantage</th>
+                        <th class="description">Description</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="date">07/10/2024</td>
+                        <td>Robotique collaborative avancée</td>
+                        <td class="entreprise">Universal Robots</td>
+                        <td class="probleme">Coût d'implémentation élevé pour les PME</td>
+                        <td class="avantage">Sécurité accrue pour les opérateurs humains</td>
+                        <td class="description">Nouvelle génération de robots collaboratifs avec des capteurs de sécurité améliorés et une programmation intuitive par démonstration.</td>
+                        <td class="source"><a href="https://www.universal-robots.com" target="_blank">Universal Robots</a></td>
+                    </tr>
+                    <tr>
+                        <td class="date">07/10/2024</td>
+                        <td>IA pour la maintenance prédictive</td>
+                        <td class="entreprise">Siemens</td>
+                        <td class="probleme">Nécessite une grande quantité de données</td>
+                        <td class="avantage">Réduction des temps d'arrêt machines</td>
+                        <td class="description">Nouveaux algorithmes d'intelligence artificielle permettant de prédire les pannes des machines industrielles avec une précision de 95%.</td>
+                        <td class="source"><a href="https://new.siemens.com" target="_blank">Siemens</a></td>
+                    </tr>
+                    <tr>
+                        <td class="date">15/10/2024</td>
+                        <td>Robot Néo - Robot humanoïde</td>
+                        <td class="entreprise">NEO Home Robot</td>
+                        <td class="probleme">Autonomie énergétique limitée, vie privée corrompue</td>
+                        <td class="avantage">Polyvalence dans les tâches minimes</td>
+                        <td class="description">Lancement du robot humanoïde Néo capable d'interagir avec des environnements non structurés et d'apprendre de nouvelles tâches par imitation.</td>
+                        <td class="source"><a href="https://www.1x.tech/neo" target="_blank">1x.tech</a></td>
+                    </tr>
+                    <tr>
+                        <td class="date">21/10/2024</td>
+                        <td>Robotique médicale</td>
+                        <td class="entreprise">Intuitive Surgical</td>
+                        <td class="probleme">Courbe d'apprentissage pour les chirurgiens</td>
+                        <td class="avantage">Précision chirurgicale améliorée</td>
+                        <td class="description">Nouveaux instruments chirurgicaux pour le système da Vinci permettant des interventions moins invasives avec une précision accrue.</td>
+                        <td class="source"><a href="https://www.intuitive.com" target="_blank">Intuitive Surgical</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sortButton = document.getElementById('sortButton');
+            const sortText = document.getElementById('sortText');
+            const sortIcon = document.getElementById('sortIcon');
+            const table = document.getElementById('veilleTable');
+            const tbody = table.querySelector('tbody');
+            let isAscending = true;
+            
+            // Fonction pour trier le tableau
+            function sortTable() {
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                
+                rows.sort((a, b) => {
+                    const dateA = parseDate(a.cells[0].textContent);
+                    const dateB = parseDate(b.cells[0].textContent);
+                    
+                    return isAscending ? dateA - dateB : dateB - dateA;
+                });
+                
+                // Supprimer les lignes existantes
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
+                
+                // Ajouter les lignes triées
+                rows.forEach(row => tbody.appendChild(row));
+                
+                // Mettre à jour le texte et l'icône du bouton
+                sortText.textContent = isAscending 
+                    ? 'Trier du plus récent au plus ancien' 
+                    : 'Trier du plus ancien au plus récent';
+                sortIcon.textContent = isAscending ? '↓' : '↑';
+                
+                // Inverser l'ordre pour le prochain clic
+                isAscending = !isAscending;
+            }
+            
+            // Fonction pour parser les dates au format DD/MM/YYYY
+            function parseDate(dateString) {
+                const [day, month, year] = dateString.split('/');
+                return new Date(year, month - 1, day);
+            }
+            
+            // Ajouter l'événement de clic sur le bouton
+            sortButton.addEventListener('click', sortTable);
+        });
+    </script>
+</body>
+</html>
