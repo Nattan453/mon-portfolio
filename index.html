@@ -535,6 +535,12 @@
     cursor:pointer;
 }
 
+.atPro-btn{
+    background: linear-gradient(45deg, #aac7e8, #7fa3d6);
+    color: white;
+    cursor: pointer;
+}
+
 /* Champ de recherche */
 #searchInput {
   border: 1px solid #ccc;
@@ -582,6 +588,12 @@
 
 .project-card.sottocat .project-image {
   background: linear-gradient(45deg, #ff8c42, #ffb347); /* Orange */
+}
+
+.project-card.atPro .project-image {
+    background: linear-gradient(45deg, #aac7e8, #7fa3d6);
+
+
 }
 
 .collapsed {
@@ -941,6 +953,7 @@
   <div class="filter-bar">
   <button class="beauvallet-btn" onclick="filterProjects('beauvallet')">Mme Beauvallet</button>
   <button class="sottocat-btn" onclick="filterProjects('sottocat')">Mr Sotoca</button>
+  <button class="atPro-btn" onclick="filterProjects('atPro')">Atelier Pro</button>
   <input type="text" id="searchInput" placeholder="Rechercher un projet...">
 </div>
 
@@ -973,7 +986,7 @@
       </div>
     </div>
 
-    <div class="project-card beauvallet">
+    <div class="project-card atPro">
             <button class="date-badge">05 Nov. 2025</button>
             <button class="nouveau">Nouveau</button>
       <div class="project-image"><i class="fa-brands fa-css3-alt"></i></div>
@@ -989,7 +1002,7 @@
       </div>
     </div>
 
-     <div class="project-card beauvallet hidden">
+     <div class="project-card atPro hidden">
             <button class="date-badge">05 Nov. 2025</button>
             <button class="nouveau">Nouveau</button>
       <div class="project-image"><i class="fa-brands fa-html5"></i></div>
@@ -1042,7 +1055,7 @@
       </div>
     </div>
 
-    <div class="project-card beauvallet hidden">
+    <div class="project-card atPro hidden">
             <button class="date-badge">08 oct. 2025</button>
             <button class="nouveau">Nouveau</button>
       <div class="project-image"><i class="fa-brands fa-css3-alt"></i></div>
@@ -1140,7 +1153,7 @@
       </div>
     </div>
 
-    <div class="project-card beauvallet hidden">
+    <div class="project-card atPro hidden">
             <button class="date-badge">24 sept. 2025</button>
             <button class="nouveau">Nouveau</button>
       <div class="project-image"><i class="fa-solid fa-code"></i></div>
@@ -1156,7 +1169,7 @@
       </div>
     </div>
 
-    <div class="project-card beauvallet hidden">
+    <div class="project-card atPro hidden">
             <button class="date-badge">17 sept. 2025</button>
             <button class="nouveau">Nouveau</button>
       <div class="project-image"><i class="fa-brands fa-css3-alt"></i></div>
@@ -1201,7 +1214,7 @@
 
     
 
-    <div class="project-card beauvallet hidden">
+    <div class="project-card atPro hidden">
         <button class="date-badge">10 sept. 2025</button>
       <div class="project-image"><i class="fa-brands fa-html5"></i></div>
       <div class="project-content">
@@ -1240,7 +1253,7 @@
       </div>
     </div>
 
-  <div class="project-card beauvallet hidden">
+  <div class="project-card atPro hidden">
     <button class="date-badge">3 sept. 2025</button>
       <div class="project-image"><i class="fa-solid fa-address-card"></i></div>
       <div class="project-content">
@@ -1564,53 +1577,3 @@ document.getElementById('searchInput').addEventListener('input', function() {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
